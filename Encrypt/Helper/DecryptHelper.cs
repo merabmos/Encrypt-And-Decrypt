@@ -15,19 +15,16 @@ namespace Encrypt.Helper
             int columns = key;
             int saveEncryptedTextLength = EncryptedText.Length;
             int rows = (EncryptedText.Length / key) * key == EncryptedText.Length ? EncryptedText.Length / key : EncryptedText.Length / key + 1;
+
             for (int i = 0; i < columns; i++)
             {
-
                 if (saveEncryptedTextLength % key == i && saveEncryptedTextLength % key != 0)
-                {
                     rows--;
-                }
 
                 var text = "";
+
                 for (int j = 0; j < rows; j++)
-                {
                     text += EncryptedText[j];
-                }
 
                 vs.Add(text);
                 EncryptedText = EncryptedText.Remove(0, rows);

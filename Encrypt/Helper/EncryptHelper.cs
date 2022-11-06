@@ -46,7 +46,6 @@ namespace Encrypt.Helper
             int j = 0;
             for (int i = 0; i < SplitedText.Length; i++)
             {
-
                 try
                 {
                     text += SplitedText[i][j];
@@ -59,30 +58,26 @@ namespace Encrypt.Helper
                 if (i == SplitedText.Length - 1)
                 {
                     EncryptedList.Add(text);
+
                     j++;
+
                     if (EncryptedList.Count != SplitedText[0].Length)
-                    {
                         i = -1;
-                    }
 
                     text = string.Empty;
                 }
-
             }
-            foreach (var item in EncryptedList)
-            {
-                Console.WriteLine(item);
-            }
+      
             return EncryptedListToString(EncryptedList);
         }
 
         private string EncryptedListToString(List<string> EncryptedList)
         {
             var text = "";
+
             foreach (var item in EncryptedList)
-            {
                 text += item;
-            }
+
             return text;
         }
     }
